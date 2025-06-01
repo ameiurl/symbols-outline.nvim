@@ -4,7 +4,8 @@ local tbl_utils = require 'symbols-outline.utils.table'
 local M = {}
 
 function M.is_buf_attached_to_lsp(bufnr)
-  local clients = vim.lsp.buf_get_clients(bufnr or 0)
+  --local clients = vim.lsp.buf_get_clients(bufnr or 0)
+  local clients = vim.lsp.get_clients({ bufnr = 0 })
   return clients ~= nil and #clients > 0
 end
 
